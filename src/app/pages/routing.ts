@@ -38,6 +38,12 @@ const Routing: Routes = [
     loadChildren: () =>
       import('../modules/apps/chat/chat.module').then((m) => m.ChatModule),
   },
+  //MIS MODULOS
+  {
+    path: 'users',
+    loadChildren: () =>
+    import('../modules/users/users.module').then((m) => m.UsersModule),
+  },
   {
     path: '',
     redirectTo: '/dashboard',
@@ -47,6 +53,7 @@ const Routing: Routes = [
     path: '**',
     redirectTo: 'error/404',
   },
+
 ];
 
 export { Routing };
