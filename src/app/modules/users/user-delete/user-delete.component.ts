@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Toaster } from 'ngx-toast-notifications';
+import { UsersService } from '../service/users.service';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-user-delete',
@@ -7,9 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserDeleteComponent implements OnInit {
 
-  constructor() { }
+  @Input() USER:any;
+  @Output() UserD: EventEmitter<any> = new EventEmitter();
+  
+  constructor(
+    public toaster: Toaster,
+    public userService: UsersService,
+    public modal: NgbActiveModal
+  ) { }
 
   ngOnInit(): void {
   }
 
+  delete(){
+    this.userService.remove(this.USER._id).subscribe((resp: any) => {
+      console.log(resp);
+      this.UserD.emit('');
+      this.modal.close();
+    })
+
+  }
 }
