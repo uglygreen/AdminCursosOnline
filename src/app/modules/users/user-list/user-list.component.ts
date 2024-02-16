@@ -13,6 +13,8 @@ import { UserDeleteComponent } from '../user-delete/user-delete.component';
 export class UserListComponent implements OnInit {
   isLoading: any;
   USERS: any =  [];
+  search: string = '';
+  rol: string='';
 
   constructor(
     public modalService: NgbModal,
@@ -20,12 +22,14 @@ export class UserListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.listarUser();
+    this.isLoading = this.userService.isLoading$;
+    this.listUser();
   }
 
-  listarUser(){
-    this.isLoading = this.userService.isLoading$;
-    this.userService.listUser().subscribe((resp:any) => {
+
+  listUser(){
+
+    this.userService.listUser(this.search, this.rol).subscribe((resp:any) => {
       
       this.USERS = resp.users;
     })
@@ -43,29 +47,23 @@ export class UserListComponent implements OnInit {
   editUser(user: any){
     const modalRef = this.modalService.open(UserEditComponent, {centered: true, size: 'md'});
     modalRef.componentInstance.USER = user;
-
     modalRef.componentInstance.UserE.subscribe((User: any) => {
-
       let INDEX = this.USERS.findIndex((item:any) => item._id == user._ID)
       if(INDEX != -1){
         this.USERS[INDEX] = User;
-      }
-      
-    })
+      }      
+    });
   }
 
   deleteUser(user: any){
     const modalRef = this.modalService.open(UserDeleteComponent, {centered: true, size: 'md'});
     modalRef.componentInstance.USER = user;
-
-    modalRef.componentInstance.UserD.subscribe((val: any) => {
- 
+    modalRef.componentInstance.UserD.subscribe((val: any) => { 
       let INDEX = this.USERS.findIndex((item:any) => item._id == user._ID)
       if(INDEX != -1){
-        this.USERS.splice(INDEX,1)
-      }
-      
-    })
+        this.USERS.splice(INDEX,1);
+      }      
+    });
   }
 
 }

@@ -27,6 +27,12 @@ export class UserDeleteComponent implements OnInit {
       console.log(resp);
       this.UserD.emit('');
       this.modal.close();
+
+      this.toaster.open({
+        text: 'Usuario ha sido eliminado',
+        caption: 'Eliminado',
+        type: 'primary'
+      });
     })
 
   }

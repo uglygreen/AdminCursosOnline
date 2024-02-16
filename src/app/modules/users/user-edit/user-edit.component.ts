@@ -94,6 +94,12 @@ export class UserEditComponent implements OnInit {
       console.log(resp);
       this.UserE.emit(resp.user);
       this.modal.close();
+
+      this.toaster.open({
+        text: 'Usuario editado',
+        caption: 'Editado',
+        type: 'primary'
+      });
     })
     
 

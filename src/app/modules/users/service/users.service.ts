@@ -21,14 +21,23 @@ export class UsersService {
    }
 
 
-   listUser(search: any = null){
+   listUser(search: any = null, rol:any = null ){
     this.isLoadingSubject.next(true);
     let headers = new HttpHeaders({'token': this.authService.token});
     let LINK = "?";
     if(search){
       LINK += "search="+search;
     }
+    if(rol){
+      if(search){
+        LINK += "&rol="+rol;
+      }else{
+        LINK += "rol="+rol;
+      }
+      
+    }
     let URL = URL_SERVICIOS+"/users/list"+LINK;
+    console.log(URL)
 
     return this.http.get(URL, {headers: headers}).pipe(
       finalize(() => this.isLoadingSubject.next(false))
