@@ -48,7 +48,7 @@ export class UserListComponent implements OnInit {
     const modalRef = this.modalService.open(UserEditComponent, {centered: true, size: 'md'});
     modalRef.componentInstance.USER = user;
     modalRef.componentInstance.UserE.subscribe((User: any) => {
-      let INDEX = this.USERS.findIndex((item:any) => item._id == user._ID)
+      let INDEX = this.USERS.findIndex((item:any) => item._id == user._id)
       if(INDEX != -1){
         this.USERS[INDEX] = User;
       }      
@@ -59,7 +59,7 @@ export class UserListComponent implements OnInit {
     const modalRef = this.modalService.open(UserDeleteComponent, {centered: true, size: 'md'});
     modalRef.componentInstance.USER = user;
     modalRef.componentInstance.UserD.subscribe((val: any) => { 
-      let INDEX = this.USERS.findIndex((item:any) => item._id == user._ID)
+      let INDEX = this.USERS.findIndex((item:any) => item._id == user._id)
       if(INDEX != -1){
         this.USERS.splice(INDEX,1);
       }      
