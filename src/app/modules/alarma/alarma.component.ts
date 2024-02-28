@@ -17,20 +17,20 @@ export class AlarmaComponent implements OnInit {
 
   constructor(
     public modalService: NgbModal,
-    public userService: AlarmaService
+    public alarmaService: AlarmaService
   ) { }
 
   ngOnInit(): void {
-    this.isLoading = this.userService.isLoading$;
+    this.isLoading = this.alarmaService.isLoading$;
     this.listAlarma();
   }
 
 
   listAlarma(){
 
-    this.userService.listAlarma(this.search).subscribe((resp:any) => {
+    this.alarmaService.listAlarma(this.search).subscribe((resp:any) => {
 
-      this.ALARMA = resp.permiso;
+      this.ALARMA = resp.alarma;
     })
   }
 

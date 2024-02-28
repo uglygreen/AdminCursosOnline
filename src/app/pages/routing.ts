@@ -55,6 +55,16 @@ const Routing: Routes = [
     import('../modules/permisos/permisos.module').then((m) => m.PermisosModule),
   },
   {
+    path: 'alarma',
+    loadChildren: () =>
+    import('../modules/alarma/alarma.module').then((m) => m.AlarmaModule),
+  },
+  {
+    path: 'ubicacion',
+    loadChildren: () =>
+    import('../modules/ubicacion/ubicacion.module').then((m) => m.UbicacionModule),
+  },
+  {
     path: '',
     redirectTo: '/dashboard',
     pathMatch: 'full',

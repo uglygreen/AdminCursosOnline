@@ -7,6 +7,10 @@ import { UbicacionAddComponent } from './ubicacion-add/ubicacion-add.component';
 import { UbicacionListComponent } from './ubicacion-list/ubicacion-list.component';
 import { UbicacionEditComponent } from './ubicacion-edit/ubicacion-edit.component';
 import { UbicacionDeleteComponent } from './ubicacion-delete/ubicacion-delete.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbModule, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { InlineSVGModule } from 'ng-inline-svg-2';
 
 
 @NgModule({
@@ -19,7 +23,15 @@ import { UbicacionDeleteComponent } from './ubicacion-delete/ubicacion-delete.co
   ],
   imports: [
     CommonModule,
-    UbicacionRoutingModule
+    UbicacionRoutingModule,
+
+
+    HttpClientModule,
+    FormsModule,
+    NgbModule,
+    ReactiveFormsModule,
+    InlineSVGModule,
+    NgbModalModule
   ]
 })
 export class UbicacionModule { }

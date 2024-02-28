@@ -15,7 +15,7 @@ export class AlarmaAddComponent implements OnInit {
 
   constructor(
     public toaster: Toaster,
-    public userService: AlarmaService,
+    public alarmaService: AlarmaService,
     public modal: NgbActiveModal
   ) { }
 
@@ -38,21 +38,32 @@ export class AlarmaAddComponent implements OnInit {
       return;
     }
 
-    let formData = new FormData();
+    const data = {
+      numero: this.numero,
+      descripcion: this.descripcion
+    };
+    console.log(data);
 
-    formData.append("numero", this.numero);
-    formData.append("descripcion", this.descripcion);
-
-    this.userService.register(formData).subscribe((resp:any) => {
-      console.log(resp);
-      this.AlarmaC.emit(resp.alarma);
-      this.modal.close();
-      this.toaster.open({
-        text: 'Nueva Alarma registrada',
-        caption: 'Registro',
-        type: 'primary'
+    this.alarmaService.register(data).subscribe(
+      (resp:any) => {
+        console.log(resp);
+        this.AlarmaC.emit(resp.alarma);
+        this.modal.close();
+        this.toaster.open({
+          text: 'Nueva Alarma registrada',
+          caption: 'Registro',
+          type: 'primary'
+        });
+      },
+      (error) => {
+        console.error('Error al registrar la alarma:', error);
+        // Manejo de errores: notificación al usuario
+        this.toaster.open({
+          text: 'Ocurrió un error al registrar la alarma',
+          caption: 'Error',
+          type: 'danger'
+        });
       });
-    })
 
 
   }

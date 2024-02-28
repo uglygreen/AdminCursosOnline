@@ -6,7 +6,11 @@ import { AlarmaComponent } from './alarma.component';
 import { AlarmaAddComponent } from './alarma-add/alarma-add.component';
 import { AlarmaListComponent } from './alarma-list/alarma-list.component';
 import { AlarmaEditComponent } from './alarma-edit/alarma-edit.component';
-import { AlarmaDelelteComponent } from './alarma-delete/alarma-delete.component';
+import { AlarmaDeleteComponent } from './alarma-delete/alarma-delete.component';
+import { NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { InlineSVGModule } from 'ng-inline-svg-2';
 
 
 @NgModule({
@@ -15,11 +19,18 @@ import { AlarmaDelelteComponent } from './alarma-delete/alarma-delete.component'
     AlarmaAddComponent,
     AlarmaListComponent,
     AlarmaEditComponent,
-    AlarmaDelelteComponent
+    AlarmaDeleteComponent
   ],
   imports: [
     CommonModule,
-    AlarmaRoutingModule
+    AlarmaRoutingModule,
+
+    HttpClientModule,
+    FormsModule,
+    NgbModule,
+    ReactiveFormsModule,
+    InlineSVGModule,
+    NgbModalModule
   ]
 })
 export class AlarmaModule { }
