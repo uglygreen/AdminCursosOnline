@@ -50,6 +50,11 @@ const Routing: Routes = [
     import('../modules/categorie/categorie.module').then((m) => m.CategorieModule),
   },
   {
+    path: 'permisos',
+    loadChildren: () =>
+    import('../modules/permisos/permisos.module').then((m) => m.PermisosModule),
+  },
+  {
     path: '',
     redirectTo: '/dashboard',
     pathMatch: 'full',

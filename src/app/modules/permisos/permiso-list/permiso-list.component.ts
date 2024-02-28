@@ -15,7 +15,7 @@ export class PermisoListComponent implements OnInit {
   isLoading: any;
   PERMISOS: any =  [];
   search: string = '';
-  rol: string='';
+  estado: string='';
 
   constructor(
     public modalService: NgbModal,
@@ -30,7 +30,7 @@ export class PermisoListComponent implements OnInit {
 
   listPermiso(){
 
-    this.permisoService.listPermiso(this.search, this.rol).subscribe((resp:any) => {
+    this.permisoService.listPermiso(this.search, this.estado).subscribe((resp:any) => {
 
       this.PERMISOS = resp.users;
     })
