@@ -7,12 +7,6 @@ const routes: Routes = [
   {
     path: '',
     component: AlarmaComponent,
-    // children: [
-    //   {
-    //     path: 'lista',
-    //     component: AlarmaListComponent
-    //   }
-    // ]
 
   }
 ];

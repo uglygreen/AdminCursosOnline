@@ -11,7 +11,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 export class AlarmaEditComponent implements OnInit {
 
   @Input() ALARMA:any;
-  @Output() UserE: EventEmitter<any> = new EventEmitter();
+  @Output() AlarmaE: EventEmitter<any> = new EventEmitter();
 
 
   constructor(
@@ -52,7 +52,7 @@ export class AlarmaEditComponent implements OnInit {
     };
     this.alarmaService.update(data).subscribe((resp:any) => {
       console.log(resp);
-      this.UserE.emit(resp.alarma);
+      this.AlarmaE.emit(resp.alarma);
       this.modal.close();
 
       this.toaster.open({

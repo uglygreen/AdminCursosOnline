@@ -57,7 +57,7 @@ export class AlarmaComponent implements OnInit {
   deleteAlarma(alarma: any){
     const modalRef = this.modalService.open(AlarmaDeleteComponent, {centered: true, size: 'md'});
     modalRef.componentInstance.ALARMA = alarma;
-    modalRef.componentInstance.UserD.subscribe((val: any) => {
+    modalRef.componentInstance.AlarmaD.subscribe((val: any) => {
       let INDEX = this.ALARMA.findIndex((item:any) => item._id == alarma._id)
       if(INDEX != -1){
         this.ALARMA.splice(INDEX,1);
