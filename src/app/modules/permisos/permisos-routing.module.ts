@@ -7,12 +7,12 @@ const routes: Routes = [
   {
     path: '',
     component: PermisosComponent,
-    children: [
-      {
-        path: 'lista',
-        component: PermisoListComponent
-      }
-    ]
+    // children: [
+    //   {
+    //     path: 'lista',
+    //     component: PermisoListComponent
+    //   }
+    // ]
   }
 ];
 

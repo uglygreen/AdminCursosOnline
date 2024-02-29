@@ -33,7 +33,7 @@
             <!--begin::Image input-->
             <div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url('assets/media/svg/avatars/blank.svg')">
               <!--begin::Preview existing avatar-->
-              <div class="image-input-wrapper w-125px h-125px" 
+              <div class="image-input-wrapper w-125px h-125px"
               [ngStyle]="{'background-image': 'url('+IMAGEN_PREVISUALIZAR+')'}"></div>
               <!--end::Preview existing avatar-->
               <!--begin::Label-->
@@ -94,27 +94,6 @@
           </div>
           <!--end::Input group-->
             <!--begin::Input group-->
-            <div class="fv-row mb-7" *ngIf="rol != 'admin'">
-              <!--begin::Label-->
-              <label class=" fw-bold fs-6 mb-2">Profesion</label>
-              <!--end::Label-->
-              <!--begin::Input-->
-              <input type="text" name="profession" [(ngModel)]="profession" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Developer" />
-              <!--end::Input-->
-            </div>
-            <!--end::Input group-->
-            <!--begin::Input group-->
-            <div class="fv-row mb-7" *ngIf="rol != 'admin'">
-              <!--begin::Label-->
-              <label class=" fw-bold fs-6 mb-2">Descripcion</label>
-              <!--end::Label-->
-              <!--begin::Input-->
-              <textarea name="description" [(ngModel)]="description" id="" cols="30" rows="4" class="form-control form-control-solid mb-3 mb-lg-0"></textarea>
-              <!-- <input type="text" name="surname" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Last name" /> -->
-              <!--end::Input-->
-            </div>
-            <!--end::Input group-->
-            <!--begin::Input group-->
             <div class="fv-row mb-7">
               <!--begin::Label-->
               <label class="required fw-bold fs-6 mb-2">Password</label>
@@ -135,12 +114,12 @@
               <!--begin::Radio-->
               <div class="form-check form-check-custom form-check-solid">
                 <!--begin::Input-->
-                <input class="form-check-input me-3" name="user_role" type="radio" value="0" id="kt_modal_update_role_option_0" [checked]="rol == 'admin'" (click)="rol = 'admin'"/>
+                <input class="form-check-input me-3" name="rol" type="radio" value="0" id="kt_modal_update_role_option_0" [checked]="rol == 'admin'" (click)="rol = 'admin'"/>
                 <!--end::Input-->
                 <!--begin::Label-->
                 <label class="form-check-label" for="kt_modal_update_role_option_0">
                   <div class="fw-bolder text-gray-800">Administrador</div>
-                  <div class="text-gray-600">Best for business owners and company administrators</div>
+                  <!-- <div class="text-gray-600">Best for business owners and company administrators</div> -->
                 </label>
                 <!--end::Label-->
               </div>
@@ -153,12 +132,82 @@
               <!--begin::Radio-->
               <div class="form-check form-check-custom form-check-solid">
                 <!--begin::Input-->
-                <input class="form-check-input me-3" name="user_role" type="radio" value="1" id="kt_modal_update_role_option_1"  [checked]="rol == 'instructor'" (click)="rol = 'instructor'"/>
+                <input class="form-check-input me-3" name="rol" type="radio" value="1" id="kt_modal_update_role_option_1"  [checked]="rol == 'operador'" (click)="rol = 'operador'"/>
                 <!--end::Input-->
                 <!--begin::Label-->
                 <label class="form-check-label" for="kt_modal_update_role_option_1">
-                  <div class="fw-bolder text-gray-800">Instructor</div>
-                  <div class="text-gray-600">Best for developers or people primarily using the API</div>
+                  <div class="fw-bolder text-gray-800">Operador</div>
+                  <!-- <div class="text-gray-600">Best for developers or people primarily using the API</div> -->
+                </label>
+                <!--end::Label-->
+              </div>
+              <!--end::Radio-->
+            </div>
+
+            <div class='separator separator-dashed my-5'></div>
+            <!--begin::Input row-->
+            <div class="d-flex fv-row">
+              <!--begin::Radio-->
+              <div class="form-check form-check-custom form-check-solid">
+                <!--begin::Input-->
+                <input class="form-check-input me-3" name="rol" type="radio" value="1" id="kt_modal_update_role_option_2"  [checked]="rol == 'tecnico'" (click)="rol = 'tecnico'"/>
+                <!--end::Input-->
+                <!--begin::Label-->
+                <label class="form-check-label" for="kt_modal_update_role_option_2">
+                  <div class="fw-bolder text-gray-800">Tecnico</div>
+                  <!-- <div class="text-gray-600">Best for developers or people primarily using the API</div> -->
+                </label>
+                <!--end::Label-->
+              </div>
+              <!--end::Radio-->
+            </div>
+
+            <div class='separator separator-dashed my-5'></div>
+            <!--begin::Input row-->
+            <div class="d-flex fv-row">
+              <!--begin::Radio-->
+              <div class="form-check form-check-custom form-check-solid">
+                <!--begin::Input-->
+                <input class="form-check-input me-3" name="rol" type="radio" value="1" id="kt_modal_update_role_option_3"  [checked]="rol == 'hse'" (click)="rol = 'hse'"/>
+                <!--end::Input-->
+                <!--begin::Label-->
+                <label class="form-check-label" for="kt_modal_update_role_option_3">
+                  <div class="fw-bolder text-gray-800">HSE</div>
+                  <!-- <div class="text-gray-600">Best for developers or people primarily using the API</div> -->
+                </label>
+                <!--end::Label-->
+              </div>
+              <!--end::Radio-->
+            </div>
+            <div class='separator separator-dashed my-5'></div>
+            <!--begin::Input row-->
+            <div class="d-flex fv-row">
+              <!--begin::Radio-->
+              <div class="form-check form-check-custom form-check-solid">
+                <!--begin::Input-->
+                <input class="form-check-input me-3" name="rol" type="radio" value="1" id="kt_modal_update_role_option_4"  [checked]="rol == 'co&m'" (click)="rol = 'co&m'"/>
+                <!--end::Input-->
+                <!--begin::Label-->
+                <label class="form-check-label" for="kt_modal_update_role_option_4">
+                  <div class="fw-bolder text-gray-800">CO&M</div>
+                  <!-- <div class="text-gray-600">Best for developers or people primarily using the API</div> -->
+                </label>
+                <!--end::Label-->
+              </div>
+              <!--end::Radio-->
+            </div>
+            <div class='separator separator-dashed my-5'></div>
+            <!--begin::Input row-->
+            <div class="d-flex fv-row">
+              <!--begin::Radio-->
+              <div class="form-check form-check-custom form-check-solid">
+                <!--begin::Input-->
+                <input class="form-check-input me-3" name="rol" type="radio" value="1" id="kt_modal_update_role_option_5"  [checked]="rol == 'proveedor'" (click)="rol = 'proveedor'"/>
+                <!--end::Input-->
+                <!--begin::Label-->
+                <label class="form-check-label" for="kt_modal_update_role_option_5">
+                  <div class="fw-bolder text-gray-800">Proveedor</div>
+                  <!-- <div class="text-gray-600">Best for developers or people primarily using the API</div> -->
                 </label>
                 <!--end::Label-->
               </div>
@@ -172,9 +221,9 @@
         <!--end::Scroll-->
         <!--begin::Actions-->
         <div class="text-center pt-15">
-          <button type="reset" class="btn btn-light me-3" data-kt-users-modal-action="cancel">Discard</button>
+          <button type="reset" class="btn btn-light me-3" data-kt-users-modal-action="cancel">Cancelar</button>
           <button type="button" (click)="save()" class="btn btn-primary" data-kt-users-modal-action="submit">
-            <span class="indicator-label">Submit</span>
+            <span class="indicator-label">Guardar</span>
             <span class="indicator-progress">Please wait...
             <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
           </button>

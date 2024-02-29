@@ -24,8 +24,6 @@ export class UserAddComponent implements OnInit {
   surname: string = '';
   email: string = '';
   password: string = '';
-  profession: string = '';
-  description: string = '';
 
   FILE_AVATAR:any;
   IMAGEN_PREVISUALIZAR:any = 'assets/media/avatars/300-6.jpg';
@@ -41,7 +39,7 @@ export class UserAddComponent implements OnInit {
 
     }
 
-    
+
     this.FILE_AVATAR = $event.target.files[0];
     let reader = new FileReader();
     reader.readAsDataURL(this.FILE_AVATAR);
@@ -68,8 +66,6 @@ export class UserAddComponent implements OnInit {
     formData.append("email", this.email);
     formData.append("password", this.password);
     formData.append("rol", this.rol);
-    formData.append("profession", this.profession);
-    formData.append("description", this.description);
 
     this.userService.register(formData).subscribe((resp:any) => {
       console.log(resp);
@@ -80,8 +76,17 @@ export class UserAddComponent implements OnInit {
         caption: 'Registro',
         type: 'primary'
       });
-    })
-    
+    },
+    (error) => {
+      console.error('Error al registrar el usuario:', error);
+      // Manejo de errores: notificación al usuario
+      this.toaster.open({
+        text: 'Ocurrió un error al registrar el usuario',
+        caption: 'Error',
+        type: 'danger'
+      });
+    });
+
 
   }
 
