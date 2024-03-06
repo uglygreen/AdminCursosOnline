@@ -22,7 +22,7 @@ export class CategorieService {
 
 
    listCategories(search: any = null, state:any = null ){
-    this.isLoadingSubject.next(true); 
+    this.isLoadingSubject.next(true);
     let headers = new HttpHeaders({'token': this.authService.token});
     let LINK = "?";
     if(search){
@@ -34,7 +34,7 @@ export class CategorieService {
       }else{
         LINK += "rol="+state;
       }
-      
+
     }
     let URL = URL_SERVICIOS+"/categorias/list"+LINK;
     console.log(URL)
@@ -44,7 +44,7 @@ export class CategorieService {
     );
    }
 
-   registerCategorie(data:any){
+   register(data:any){
     this.isLoadingSubject.next(true);
     let headers = new HttpHeaders({"token": this.authService.token});
     let URL = URL_SERVICIOS+"/categorias/register";
@@ -54,7 +54,7 @@ export class CategorieService {
     );
    }
 
-   updateCategorie(data:any){
+   update(data:any){
     this.isLoadingSubject.next(true);
     let headers = new HttpHeaders({"token": this.authService.token});
     let URL = URL_SERVICIOS+"/categorias/update";
@@ -64,7 +64,7 @@ export class CategorieService {
     );
    }
 
-   removeCategorie(categorie_id:any){
+   remove(categorie_id:any){
     this.isLoadingSubject.next(true);
     let headers = new HttpHeaders({"token": this.authService.token});
     let URL = URL_SERVICIOS+"/categorias/delete/"+categorie_id;

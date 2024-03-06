@@ -30,7 +30,7 @@ export class CategorieListComponent implements OnInit {
   listCategoria(){
 
     this.categorieService.listCategories(this.search, this.state).subscribe((resp:any) => {
-      
+
       this.CATEGORIES = resp.categoria;
     })
   }
@@ -38,31 +38,31 @@ export class CategorieListComponent implements OnInit {
   registerCategoria(){
     const modalRef = this.modalService.open(CategorieAddComponent, {centered: true, size: 'md'});
 
-    modalRef.componentInstance.UserC.subscribe((User: any) => {
-      console.log(User)
-      this.CATEGORIES.unshift(User);
+    modalRef.componentInstance.CatC.subscribe((Categorie: any) => {
+      console.log(Categorie)
+      this.CATEGORIES.unshift(Categorie);
     })
   }
 
   editCategorie(CATEGORIE: any){
     const modalRef = this.modalService.open(CategorieEditComponent, {centered: true, size: 'md'});
     modalRef.componentInstance.CATEGORIE = CATEGORIE;
-    modalRef.componentInstance.UserE.subscribe((User: any) => {
+    modalRef.componentInstance.CatE.subscribe((Categorie: any) => {
       let INDEX = this.CATEGORIES.findIndex((item:any) => item._id == CATEGORIE._id)
       if(INDEX != -1){
-        this.CATEGORIES[INDEX] = User;
-      }      
+        this.CATEGORIES[INDEX] = Categorie;
+      }
     });
   }
 
   deleteCategorie(CATEGORIE: any){
     const modalRef = this.modalService.open(CategorieDeleteComponent, {centered: true, size: 'md'});
     modalRef.componentInstance.CATEGORIE = CATEGORIE;
-    modalRef.componentInstance.UserD.subscribe((val: any) => { 
+    modalRef.componentInstance.CatD.subscribe((val: any) => {
       let INDEX = this.CATEGORIES.findIndex((item:any) => item._id == CATEGORIE._id)
       if(INDEX != -1){
         this.CATEGORIES.splice(INDEX,1);
-      }      
+      }
     });
   }
 
